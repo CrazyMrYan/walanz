@@ -31,24 +31,15 @@ async function bootstrap() {
   const customOptions = {
     swaggerOptions: {
       persistAuthorization: true,
-      urls: [
-        {
-          url: 'https://cdn.jsdelivr.net/npm/swagger-ui-dist/swagger-ui-bundle.js',
-          name: 'bundle'
-        },
-        {
-          url: 'https://cdn.jsdelivr.net/npm/swagger-ui-dist/swagger-ui-standalone-preset.js',
-          name: 'standalone'
-        },
-        {
-          url: 'https://cdn.jsdelivr.net/npm/swagger-ui-dist/swagger-ui.css',
-          name: 'css'
-        }
-      ],
     },
     customSiteTitle: 'Balance Service API',
+    customCssUrl: 'https://cdn.jsdelivr.net/npm/swagger-ui-dist/swagger-ui.css',
+    customJs: [
+      'https://cdn.jsdelivr.net/npm/swagger-ui-dist/swagger-ui-bundle.js',
+      'https://cdn.jsdelivr.net/npm/swagger-ui-dist/swagger-ui-standalone-preset.js'
+    ]
   };
-  SwaggerModule.setup('api', app, document, customOptions);
+  SwaggerModule.setup('docs', app, document, customOptions);
   
   // Initialize the application
   await app.init();
